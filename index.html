@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sellers Admin Page</title>
+  </head>
+  <body>
+    <form onsubmit="sellersPage(event)">
+        
+      <label for="sellingPrice">Selling Price : </label>
+      <input type="number" id="sellingPrice" name="sellingPrice" required />
+
+      <label for="productName">Product Name : </label>
+      <input type="text" list="ProductName" id="productName" name="productName" required/>
+      <datalist id="ProductName">
+        <option value="Playstation 5"></option>
+        <option value="Playstation 4"></option>
+      </datalist>
+
+      <label for="category">Category : </label>
+      <select id="category" name="category">
+        <option value="Electronics">Electronics</option>
+        <option value="Foods">Foods</option>
+        <option value="Skincare">Skincare</option>
+      </select>
+
+      <button type="submit">Add Product</button>
+    </form>
+
+    <h1>Products</h1>
+
+    <h3>Electronic Items</h3>
+    <ul id="elec"></ul>
+
+    <h3>Food Items</h3>
+    <ul id="food"></ul>
+
+    <h3>Skincare Items</h3>
+    <ul id="skincare"></ul>
+
+
+    <script>
+        function sellersPage(e){
+            e.preventDefault();
+
+            let sellingPrice = e.target.sellingPrice.value;
+            let productName = e.target.productName.value;
+            let category = e.target.category.value;
+
+            let productDetails = {
+                selling_price : sellingPrice,
+                product_name : productName,
+                categories : category
+            }
+
+            console.log(productDetails);
+        }
+    </script>
+  </body>
+</html>
